@@ -1,5 +1,9 @@
 package br.com.forum.forum.atualizado.topico;
 
+import br.com.forum.forum.atualizado.topico.dtos.TopicoAtualizarDTO;
+import br.com.forum.forum.atualizado.topico.dtos.TopicoCriarDTO;
+import br.com.forum.forum.atualizado.topico.dtos.TopicoDTO;
+import br.com.forum.forum.atualizado.topico.dtos.TopicoDetalhesDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -21,17 +25,11 @@ public class TopicoController {
     @Autowired
     private TopicoService topicoService;
 
-    /**
-     * method GET(All)
-     * */
     @GetMapping
     public ResponseEntity<Page<TopicoDTO>> listTopics(@PageableDefault(page = 0, size = 10, sort = "id", direction = Sort.Direction.DESC) Pageable pageable){
         return ResponseEntity.status(HttpStatus.OK).body(topicoService.listAllTopics(pageable));
     }
 
-    /**
-     * method GET(ID)
-     * */
     @GetMapping("/{id}")
     public ResponseEntity<TopicoDetalhesDTO> topicoDetalhesDTOResponseEntity(@PathVariable Long id){
         Optional<TopicoDetalhesDTO> topicoDetalhesDTO = topicoService.topicDetailsDTO(id);
@@ -42,9 +40,6 @@ public class TopicoController {
         return ResponseEntity.notFound().build();
     }
 
-    /**
-     * method POST
-     * */
     @PostMapping
     @Transactional
     public ResponseEntity<TopicoCriarDTO> topicoCriarDTOResponseEntity(@RequestBody @Valid TopicoCriarDTO topicoCriarDTO){
@@ -53,9 +48,6 @@ public class TopicoController {
         return new ResponseEntity<>(criarDTO, HttpStatus.CREATED);
     }
 
-    /**
-     * method PUT
-     * */
     @PutMapping("/{id}")
     @Transactional
     public ResponseEntity<TopicoAtualizarDTO> topicoAtualizarResponseEntity(@PathVariable Long id, @RequestBody @Valid TopicoAtualizarDTO topicoAtualizarDTO){
@@ -66,9 +58,6 @@ public class TopicoController {
         return new ResponseEntity<>(atualizar, HttpStatus.OK);
     }
 
-    /**
-     * method DELETE
-     * */
     @DeleteMapping("/{id}")
     @Transactional
     public ResponseEntity<TopicoDTO> topicoDTOResponseEntity(@PathVariable Long id){

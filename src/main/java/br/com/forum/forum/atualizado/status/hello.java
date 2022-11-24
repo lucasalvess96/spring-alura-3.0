@@ -1,4 +1,4 @@
-package br.com.forum.forum.atualizado.hello;
+package br.com.forum.forum.atualizado.status;
 
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;

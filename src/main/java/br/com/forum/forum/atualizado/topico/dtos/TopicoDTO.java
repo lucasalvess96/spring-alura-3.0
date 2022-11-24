@@ -1,4 +1,6 @@
-package br.com.forum.forum.atualizado.topico;
+package br.com.forum.forum.atualizado.topico.dtos;
+
+import br.com.forum.forum.atualizado.topico.TopicoEntity;
 
 import java.time.LocalDateTime;
 

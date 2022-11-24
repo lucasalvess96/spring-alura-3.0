@@ -34,10 +34,11 @@ public class TopicoEntity {
 
     public TopicoEntity() { }
 
-    public TopicoEntity(String title, String message, CursoEntity cursoEntity) {
+    public TopicoEntity(String title, String message, CursoEntity cursoEntity, UsuarioEntity usuarioEntity) {
         this.title = title;
         this.message = message;
         this.cursoEntity = cursoEntity;
+        this.usuarioEntity = usuarioEntity;
     }
 
     public Long getId() {

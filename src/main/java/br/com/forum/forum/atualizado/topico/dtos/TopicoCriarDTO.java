@@ -1,7 +1,9 @@
-package br.com.forum.forum.atualizado.topico;
+package br.com.forum.forum.atualizado.topico.dtos;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotEmpty;
+
+import br.com.forum.forum.atualizado.topico.TopicoEntity;
 import org.hibernate.validator.constraints.Length;
 
 public class TopicoCriarDTO {
@@ -14,12 +16,15 @@ public class TopicoCriarDTO {
 
     private String courseName;
 
+    private String usuarioName;
+
     public TopicoCriarDTO() { }
 
-    public TopicoCriarDTO(TopicoEntity  topicoEntity) {
+    public TopicoCriarDTO(TopicoEntity topicoEntity) {
         this.title = topicoEntity.getTitle();
         this.message = topicoEntity.getMessage();
         this.courseName = topicoEntity.getCursoEntity().getName();
+        this.usuarioName = topicoEntity.getUsuarioEntity().getName();
     }
 
     public String getTitle() {
@@ -44,5 +49,13 @@ public class TopicoCriarDTO {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getUsuarioName() {
+        return usuarioName;
+    }
+
+    public void setUsuarioName(String usuarioName) {
+        this.usuarioName = usuarioName;
     }
 }

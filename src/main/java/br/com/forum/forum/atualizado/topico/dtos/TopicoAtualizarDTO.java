@@ -1,7 +1,9 @@
-package br.com.forum.forum.atualizado.topico;
+package br.com.forum.forum.atualizado.topico.dtos;
 
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.NotEmpty;
+
+import br.com.forum.forum.atualizado.topico.TopicoEntity;
 import org.hibernate.validator.constraints.Length;
 
 public class TopicoAtualizarDTO {
